@@ -26,11 +26,9 @@
 settings.diameter = 2 * settings.radius;
 settings.circles = Math.floor( settings.width * settings.height / (Math.PI * Math.pow(settings.radius,2)));
 settings.circles = numCircles(settings.width,settings.height,settings.diameter,settings.start);
-
 var horLimit = Math.floor((settings.width - 2 * settings.start) / (settings.sep * settings.diameter));
-var setPos = function(d,i,x){
 
-//var horLimit = Math.floor( settings.width / ( settings.sep * settings.diameter ));
+var setPos = function(d,i,x){
 
 if (x) {
   i = i % horLimit + 1;
@@ -49,8 +47,6 @@ var svg = d3.select("#chart").append("svg")
 var create = function(){
   var circle = svg.append('g')
     .attr('class','node')
-    .attr('width', settings.width)
-    .attr('height', settings.height)
     .selectAll('circle')
     .data(d3.range(settings.circles))
     .enter().append('circle')
@@ -74,12 +70,10 @@ d3.selectAll('#chart')
 };
 
 var anim = function(elements){
-  //console.log('called');
+  
   elements
-    //.attr('r', function() { return settings.radius })
     .transition()
     .duration(1500)
-    //.delay(Math.random() * 1)
     .attr('fill', function(){ return settings.color(); })
     .attr('r', function() { return settings.radius * Math.random() + 0.5 * settings.radius })
     .each('end', function(){ anim(d3.select(this)); });
@@ -99,8 +93,6 @@ svg.on('click', function(){
     .duration(1200)
     .attr('opacity', 1)
     .each('end', function() { anim(d3.select(this)); });
-
-    
 
 });
 
