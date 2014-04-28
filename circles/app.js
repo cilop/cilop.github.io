@@ -85,7 +85,7 @@ var anim = function(elements){
     .each('end', function(){ anim(d3.select(this)) });
 };
 
-//anim(circle);
+anim(circle);
 
 
 
