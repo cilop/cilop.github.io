@@ -41,30 +41,30 @@ i++;
 return settings.start + 30 * Math.floor(i / horLimit);
 };
 
-
-
-
-
 var svg = d3.select("#chart").append("svg")
   .attr("width", settings.width)
   .attr("height", settings.height)
   .attr('class','board');
 
-var circle = svg.append('g')
-  .attr('class','node')
-  .attr('width', settings.width)
-  .attr('height', settings.height)
-  .selectAll('circle')
-  .data(d3.range(settings.circles))
-  .enter().append('circle')
-  .attr('opacity', 0)
-  .transition()
-  .duration(3 * settings.circles)
-  .attr('opacity', 1)
-  .attr('r', settings.radius)
-  .attr('cx', function(d,i) { return setPos(d,i,true); })
-  .attr('cy', function(d,i) { return setPos(d,i,false); })
-  .attr('fill', function(){ return settings.color(); });
+var create = function(){
+  var circle = svg.append('g')
+    .attr('class','node')
+    .attr('width', settings.width)
+    .attr('height', settings.height)
+    .selectAll('circle')
+    .data(d3.range(settings.circles))
+    .enter().append('circle')
+    .attr('opacity', 0)
+    .transition()
+    .duration(2 * settings.circles)
+    .attr('opacity', 1)
+    .attr('r', settings.radius)
+    .attr('cx', function(d,i) { return setPos(d,i,true); })
+    .attr('cy', function(d,i) { return setPos(d,i,false); })
+    .attr('fill', function(){ return settings.color(); });  
+
+  return circle;
+}
 
 
 window.onresize = function(){
@@ -82,10 +82,27 @@ var anim = function(elements){
     //.delay(Math.random() * 1)
     .attr('fill', function(){ return settings.color(); })
     .attr('r', function() { return settings.radius * Math.random() + 0.5 * settings.radius })
-    .each('end', function(){ anim(d3.select(this)) });
+    .each('end', function(){ anim(d3.select(this)); });
 };
 
+var circle = create();
 anim(circle);
+
+svg.on('click', function(){
+
+  d3.selectAll('circle')
+    .transition()
+    .duration(1200)
+    .attr('opacity', 0.05)
+    .delay(function() { return 400 * Math.random(); })
+    .transition()
+    .duration(1200)
+    .attr('opacity', 1)
+    .each('end', function() { anim(d3.select(this)); });
+
+    
+
+});
 
 
 
