@@ -1,0 +1,15 @@
+
+body {
+  margin: 20px;
+  padding: 20px;
+  background-color: gray;
+}
+
+svg {
+  background-color: rgb(210,210,255);
+  border-radius: 10px;
+  position: absolute;
+  margin: auto;
+  top: 0; right: 0; bottom: 0; left: 0;
+
+}
