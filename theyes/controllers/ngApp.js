@@ -5,7 +5,6 @@ angular.module("d3App", ['map', 'api', 'assets'])
 
   var mapData;
   $scope.model = {};
-  window.model = $scope.model;
   var routeListUrl = APIUrls.routeList;
 
   $scope.activate = function(tag) {

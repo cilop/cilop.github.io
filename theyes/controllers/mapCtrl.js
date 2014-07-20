@@ -99,8 +99,6 @@ angular.module('map', ['api', 'd3'])
         id: 'examples.map-20v6611k'
       }).addTo(map);
 
-    window.map = map;
-
     map.on('zoomend', function() {
       $rootScope.$broadcast('zoomend');
     });
