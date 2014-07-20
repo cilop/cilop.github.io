@@ -3,6 +3,7 @@ angular.module('map', ['api', 'd3'])
 .controller('mapCtrl', ['$scope', 'getLocations', 'parseLocations', 'makeMap', 'putCircles', 'deleteCircles', function($scope, getLocations, parseLocations, makeMap, putCircles, deleteCircles) {
 
   $scope.timers = {};
+  var map = makeMap();
 
   $scope.$on('zoomend', function() {
     deleteCircles();
