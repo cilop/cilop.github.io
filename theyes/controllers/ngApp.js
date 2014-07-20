@@ -23,7 +23,7 @@ angular.module("d3App", ['map', 'api', 'assets'])
     var map = makeMap();
     mapData = result;
     var dataLayer = L.geoJson().addTo(map);
-    dataLayer.addData(mapData.streets);
+    dataLayer.addData(mapData.arteries);
     // for (var key in mapData) {
     //   dataLayer.addData(mapData[key]);
     // }

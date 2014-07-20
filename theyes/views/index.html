@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
     <link rel="stylesheet" href="../styles/style.css">
     <script src="../bower_components/angular/angular.min.js"></script>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <!-- <script src="../bower_components/underscore/underscore.js"></script> -->
+    <script src="../bower_components/d3/d3.min.js"></script>
     <script src="../services/d3Service.js"></script>
     <script src="../services/apiService.js"></script>
     <script src="../controllers/mapCtrl.js"></script>
@@ -30,13 +29,14 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">SF Muni Routes</a>
-        </div>
+          <div class="brand">
+            <a class="navbar-brand" href="">SF Muni Routes</a>
+          </div>
 
         <ul class="nav navbar-top-links navbar-right">
           <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-              Dropdown
+              Choose Routes
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -53,10 +53,19 @@
         </ul>
 
       </nav>
+
+
+      
+    </div>
+
+    <div id='leftBar' class="col-lg-4">
+          <div ng-if="route.visible" class="navbar-route c{{tag}}" ng-repeat="(tag,route) in model.routes">
+          {{tag}}: {{route.title}}
+        </div>
     </div>
 
     <div id="content">
-      <div class="col-lg-12">
+      <div class="col-lg-8">
         <div ng-controller="mapCtrl" id="map">
 
         </div>
