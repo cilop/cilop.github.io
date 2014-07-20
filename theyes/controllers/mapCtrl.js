@@ -33,9 +33,17 @@ angular.module('map', ['api', 'd3'])
       });
       putCircles(locations, route.routeTag, route.color);
 
+
+
       $('.c' + route.routeTag).css({
         'background-color' : route.color
       });
+
+      if (route.dark) {
+        $('.c' + route.routeTag).css({
+          'color' : 'white'
+        });
+      }
       
     });
   };

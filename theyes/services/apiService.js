@@ -59,11 +59,14 @@ angular.module('api', [])
       title = $node.attr('title');
       routeTag = $node.attr('tag');
 
+      var colorData = randomColor();
+
       scope.model.routes[routeTag] = {
         title: title,
         visible: false,
         routeTag: routeTag,
-        color: randomColor()
+        color: colorData.color,
+        dark: colorData.dark
       };
 
     });
@@ -93,7 +96,7 @@ angular.module('api', [])
 
 }])
 
-.factory('randomColor', [function() {
+.factory('randomColor', ['checkLum', function(checkLum) {
 
   return function(){
     var letters = 'ABCDEF0123456789'.split('');
@@ -103,8 +106,25 @@ angular.module('api', [])
       color = color + letters[Math.floor(Math.random() * letters.length)];    
     }
 
-    return color;
+    return {
+      color: color,
+      dark: checkLum(color)
+    };
  };
+
+}])
+
+.factory('checkLum', [function() {
+
+  return function (hex) {
+
+    hex = hex.replace('#', '');
+    var red = parseInt(hex.substring(0, 2), 16);
+    var grn = parseInt(hex.substring(2, 4), 16);
+    var blu = parseInt(hex.substring(4, 6), 16);
+
+    return (((red * 299) + (grn * 587) + (blu * 114)) / 1000) < 130;
+  };
 
 }]);
 
