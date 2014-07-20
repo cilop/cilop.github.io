@@ -35,29 +35,39 @@
         <h4>
 <a name="welcome" class="anchor" href="#welcome"><span class="octicon octicon-link"></span></a>Welcome.</h4>
 
-<p>This is my little landing page. Here, you can read up a little bit about me. I also have a personal blog setup <a href="http://cilo.me">here</a>. I'm an avid Twitter <a href="http://twitter.com/cilotweet">scanner</a> (although I don't tweet myself that much), but I'll gladly reply to conversations. My most up to date professional information can be found at <a href="www.linkedin.com/pub/roberto-alvarez/4b/b67/50/">my LinkedIn</a></p>
+<p>This is my little landing page. Here, you can read up a little bit about me. I also have a personal blog setup <a href="http://cilo.me">here</a>. I'm an avid Twitter <a href="http://twitter.com/cilotweet">scanner</a> (although I don't tweet myself that much), but I'll gladly reply to conversations. My most up to date professional information can be found at <a href="www.linkedin.com/in/robalvarez">my LinkedIn</a></p>
 
-<p>I'm currently going through the second part of <a href="http://hackreactor.com">Hack Reactor's</a> Software Engineering immersive program, working on student driven projects using Javascript, Node and related technologies. You can always find my latest work here, on my Github profile. It should be also available on their respective pages (hosted on Microsoft Azure).</p>
+<p>I recently graduated from <a href="http://hackreactor.com">Hack Reactor</a>, the Software Engineering immersive program. While there, I worked on student driven projects using Javascript, Node and related technologies. You can always find my latest work here, on my Github profile. It should be also available on their respective pages (hosted on Microsoft Azure).</p>
 
 <p>From the last months at Hack Reactor, I have acquired new technical and communications skills. I am now comfortable working at any point of the full stack, and also with many current cutting edge technologies. My background is in Physics, so I've also worked on numerical analysis and optimization with algorithms like Montecarlo using Matlab. Other techniques such as Neural Networks also fascinate me; for this I have used open source libraries like <a href="http://pybrain.org/">PyBrain</a> for Python, or <a href="https://github.com/harthur/brain">BrainJS</a> for Javascript</p>
 
 <h3>
 <a name="favorite-technologies" class="anchor" href="#favorite-technologies"><span class="octicon octicon-link"></span></a>Favorite technologies</h3>
 
-<p>Angular.js has an amazing way of empowering your HTML. You can very easily incorporate complex functionality with very little code. It has all sorts of ways for bringing websites to life, by allowing developers to easily setup model-view data binding, and also to do many other complex things by writing custom directives.</p>
+<p>Angular.js has an amazing way of empowering your HTML. You can very easily incorporate complex functionality in a very intuitive way. It has all sorts of ways for bringing websites to life, by allowing developers to easily setup model-view data binding, and also to do many other complex things by writing custom directives.</p>
 
-<p>Firebase is certainly on top 3. I really like how easy it is to use, compared to other services out there. It also is very powerful when it comes to handling real time apps, and also plays nice with AngularJS. They also have a really simple API for authentication.</p>
+<p>Firebase is also nice. I really like how easy it is to use, compared to other services out there. It also is very powerful when it comes to handling real time apps, and also plays nice with AngularJS. They also have a really simple API for authentication. Especially recommended for hackathons!</p>
 
 <p>D3.js is also among my favorites. It is incredibly powerful, you can do all sorts of amazing visualizations with it, running 100% on front-end Javascript.</p>
+
+<p>Socket.io is a library that builds an abstraction layer on top of HTML5 websockets. It is very useful, it allows programmers to break the old client-server paradigm, where servers can only fetch data that clients request for. With websockets, the server can push data into any client at any time. It is really engaging. I actually worked extensively with socket.io when working on RASR.</p>
 
 <h4>
 <a name="recent-projects" class="anchor" href="#recent-projects"><span class="octicon octicon-link"></span></a>Recent projects</h4>
 
 <h2>
+<a name="rasr" class="anchor" href="#rasr"><span class="octicon octicon-link"></span></a><a href="http://rasr.azurewebsites.net">RASR</a>
+</h2>
+
+<p>RASR is an online multiplayer, 2D tile based adventure game. There are creatures around, and players can fight them in order to progress through the game. But what really stands out about RASR is that it allows players to edit and expand the world they plan in as they please. Through a simple interface, they have access to the tile assets used to create the world, and from there they can edit and save the map for others to explore. </p>
+
+<p>It runs entirely in the browser, using JavaScript and HTML5. The game itself is built using Phaser.io, and we have 2 Node.js servers. One is serving assets and processing API requests, and the other handles all the game state and the logic of everything. An important aspect of the second server is also to handle websocket events. Socket.io is used throughout the stack in order to guarantee data consistency between all players. We persist data inside a MongoDB</p>
+
+<h2>
 <a name="lilypond-gui" class="anchor" href="#lilypond-gui"><span class="octicon octicon-link"></span></a><a href="http://pondweb.azurewebsites.net">Lilypond Gui</a>
 </h2>
 
-<p>It is a music editing app, running entirely on Javascript, using AngularJS. It is compatible with Lilypond code (in case you have never heard of it, it is just a markup language that compiles into PDF music sheets), so you can write music (instead of code), but still be able to share beautiful music sheets.</p>
+<p>It is a music editing app, running entirely on Javascript, using AngularJS (but there's also a desktop version!). It is compatible with Lilypond code (in case you have never heard of it, it is just a markup language that compiles into PDF music sheets), so you can write music (instead of code), but still be able to share beautiful music sheets. It runs on a Node.js server, which handles serving assets and also calls to the restful API. It is also particularly important because it allows to mimic the functionality of the desktop app</p>
       </section>
       <footer>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
