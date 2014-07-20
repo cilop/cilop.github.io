@@ -1,0 +1,68 @@
+<html>
+
+  <head>
+    <title> d3 SF </title>
+    <script src="../bower_components/leaflet/dist/leaflet.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/js/dropdown.js"></script>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <!-- <script src="../bower_components/underscore/underscore.js"></script> -->
+    <script src="../services/d3Service.js"></script>
+    <script src="../services/apiService.js"></script>
+    <script src="../controllers/mapCtrl.js"></script>
+    <script src="../services/assetService.js"></script>
+    <script src="../controllers/ngApp.js"></script>
+  </head>
+
+  <body ng-app="d3App" ng-controller="mainCtrl">
+
+    <div id="wrapper">
+      
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">SF Muni Routes</a>
+        </div>
+
+        <ul class="nav navbar-top-links navbar-right">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+              Dropdown
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+
+              <li>
+                <a href="#" class="c{{tag}}" ng-click="activate(tag)" ng-repeat="(tag,route) in model.routes">
+                <!-- <span class="c{{tag}}">*</span> -->
+                  {{tag}}: {{route.title}}
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </ul>
+
+      </nav>
+    </div>
+
+    <div id="content">
+      <div class="col-lg-12">
+        <div ng-controller="mapCtrl" id="map">
+
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>
