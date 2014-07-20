@@ -8,6 +8,10 @@ div.brand {
   height: 100%;
 }
 
+div.navbar-route {
+  margin: 1px;
+}
+
 div#leftBar {
   border: 1px solid;
   border-radius: 5px;
@@ -16,6 +20,7 @@ div#leftBar {
   height: 90%;
   top: 8.5%;
   margin-left: 5px;
+  padding: 5px;
 }
 
 span.route {
